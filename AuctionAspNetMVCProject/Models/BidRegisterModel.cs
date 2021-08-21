@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace AuctionAspNetMVCProject.Models
 {
-    public class AuctionBidModel
+    public class BidRegisterModel
     {
-
         public Guid AuctionID { get; set; }
         [MaxLength(150, ErrorMessage = "Type a maximum of {1} characters")]
         [MinLength(6, ErrorMessage = "Type a minimum of {1} characters")]

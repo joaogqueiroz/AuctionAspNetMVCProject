@@ -61,23 +61,5 @@ namespace AuctionAspNetMVCProject.Controllers
             }
             return View();
         }
-        public IActionResult Bid(Guid id)
-        {
-            {
-                var model = new AuctionBidModel();
-                try
-                {
-                    //Search auction in data base using ID for it.
-                    TempData["Consult"] = _auctionRepository.GetAuctionById(id);
-
-                }
-                catch (Exception e)
-                {
-
-                    TempData["Messege"] = e.Message;
-                }
-                return View(model);
-            }
-        }
     }
 }

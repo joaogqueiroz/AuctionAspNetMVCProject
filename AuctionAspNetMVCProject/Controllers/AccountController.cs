@@ -34,9 +34,6 @@ namespace AuctionAspNetMVCProject.Controllers
             {
                 try
                 {
-                    //var user = new User();                    
-                    //user.Email = model.Email;
-                    //user.PassWord = model.PassWord;
                     if (_userRepository.Get(model.Email, model.PassWord) != null)
                     {
                         //User Auth

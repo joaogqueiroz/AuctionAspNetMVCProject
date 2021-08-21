@@ -1,4 +1,5 @@
-﻿using AuctionAspNetMVCProject.Data.Interfaces;
+﻿using AuctionAspNetMVCProject.Data.Entities;
+using AuctionAspNetMVCProject.Data.Interfaces;
 using AuctionAspNetMVCProject.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -35,5 +36,30 @@ namespace AuctionAspNetMVCProject.Controllers
                 return View();
             }
         }
+        [HttpPost]
+        public IActionResult Register(BidRegisterModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    //getting user email
+                    var email = User.Identity.Name;
+
+                    //getting user data
+                    var user = _userRepository.Get(email);
+                    //creating Auction
+                    var auction = new Auction();
+                    
+                }
+                catch (Exception e)
+                {
+                     TempData["Message"] = "Erro: " + e.Message;
+                }
+
+            }
+            return View();
+        }
     }
+                        
 }
