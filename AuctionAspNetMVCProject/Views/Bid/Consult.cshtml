@@ -1,4 +1,5 @@
 ﻿@using AuctionAspNetMVCProject.Data.Entities
+@model AuctionAspNetMVCProject.Models.AuctionBidModel
 @{
     var auction = TempData["Consult"] as Auction;
 }
@@ -8,14 +9,34 @@
 }
 
 <h1>@auction.Name</h1>
-<div class="col-sm-4">
-    <div class="card">
+
+<div class="row">
+    <div class="col-md-6">
         <img class="card-img-top" alt="100%x180" style="height: 180px; width: 100%; display: block;" src="~/imgs/imageTest.svg">
-        <div class="card-body">
-            <h5 class="card-title">@auction.Name</h5>
-            <p class="card-text">@auction.Description</p>
-            <p class="card-text"><strong>$@auction.Value</strong></p>
-            <a href="/Bid/Consult?id=@auction.AuctionID" class="btn btn-primary">See More</a>
-        </div>
+
+    </div>
+
+    <div class="col-md-6">
+        <h4>Actual bid</h4>
+        <br />
+        <label><strong>$@auction.Value</strong></label>
+
+    </div>
+    <div class="col-md-6">
+        <h4>Description</h4>
+        <br />
+        <label>@auction.Description</label>
+
     </div>
 </div>
+<br />
+@using (Html.BeginForm("Registration", "Bid", FormMethod.Post, new { @autocomplete = "off" }))
+{
+    <div class="col-md-6">
+        <label>Your bid</label>
+        @Html.TextBoxFor(model => model.Value, new { @class = "form-control", type = "number", @min = "0.00", @step = "05.00", @value = "1.00"})
+        <span class="text-danger">@Html.ValidationMessageFor(model => model.Value)</span>
+    </div>
+    <br />
+    <input type="submit" value="Bid" class="btn btn-secondary" />
+}
