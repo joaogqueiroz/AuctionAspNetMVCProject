@@ -1,0 +1,21 @@
+﻿@using AuctionAspNetMVCProject.Data.Entities
+@{
+    var auction = TempData["Consult"] as Auction;
+}
+@{
+    ViewData["Title"] = "Consult";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h1>@auction.Name</h1>
+<div class="col-sm-4">
+    <div class="card">
+        <img class="card-img-top" alt="100%x180" style="height: 180px; width: 100%; display: block;" src="~/imgs/imageTest.svg">
+        <div class="card-body">
+            <h5 class="card-title">@auction.Name</h5>
+            <p class="card-text">@auction.Description</p>
+            <p class="card-text"><strong>$@auction.Value</strong></p>
+            <a href="/Bid/Consult?id=@auction.AuctionID" class="btn btn-primary">See More</a>
+        </div>
+    </div>
+</div>

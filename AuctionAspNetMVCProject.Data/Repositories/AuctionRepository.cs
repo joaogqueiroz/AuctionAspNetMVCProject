@@ -91,14 +91,14 @@ namespace AuctionAspNetMVCProject.Data.Repositories
             }
         }
 
-        public Task GetAuctionById(Guid auctionid)
+        public Auction GetAuctionById(Guid auctionid)
         {
             var query = @"
                         SELECT * FROM AUCTION_TB
-                        WHERE USERID = @userid";
+                        WHERE AUCTIONID = @auctionid";
             using (var connetionString = new SqlConnection(_connectionString))
             {
-                return connetionString.Query<Task>(query, new { auctionid }).FirstOrDefault();
+                return connetionString.Query<Auction>(query, new { auctionid }).FirstOrDefault();
             }
         }
 

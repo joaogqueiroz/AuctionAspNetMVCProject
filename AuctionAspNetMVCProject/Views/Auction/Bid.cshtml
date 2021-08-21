@@ -1,4 +1,7 @@
-﻿
+﻿@using AuctionAspNetMVCProject.Data.Entities
+@{
+    var auctions = TempData["Consult"] as Auction;
+}
 @{
     ViewData["Title"] = "Bid";
     Layout = "~/Views/Shared/Layout.cshtml";

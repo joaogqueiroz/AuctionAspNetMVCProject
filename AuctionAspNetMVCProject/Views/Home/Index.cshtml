@@ -1,6 +1,5 @@
 ﻿@using AuctionAspNetMVCProject.Data.Entities
 @{
-    Layout = null;
     var auctions = TempData["Consult"] as List<Auction>;
 }
 @{
@@ -20,7 +19,7 @@
                     <h5 class="card-title">@auction.Name</h5>
                     <p class="card-text">@auction.Description</p>
                     <p class="card-text"><strong>$@auction.Value</strong></p>
-                    <a href="/Auction/Bid?id=@auction.AuctionID" class="btn btn-primary">See More</a>
+                    <a href="/Bid/Consult?id=@auction.AuctionID" class="btn btn-primary">See More</a>
                 </div>
             </div>
         </div>

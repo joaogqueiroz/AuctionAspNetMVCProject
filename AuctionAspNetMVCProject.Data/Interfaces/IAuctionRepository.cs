@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace AuctionAspNetMVCProject.Data.Interfaces
 {
@@ -14,6 +13,6 @@ namespace AuctionAspNetMVCProject.Data.Interfaces
         void Delete(Auction auction);
         List<Auction> Read();
         List<Auction> GetByUser(Guid userid);
-        Task GetAuctionById(Guid auctionid);
+        Auction GetAuctionById(Guid auctionid);
     }
 }
