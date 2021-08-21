@@ -9,7 +9,7 @@ Fill in the fields to create a new auction.
 <br />
 <br />
 
-@using (Html.BeginForm("Registration", "Auction", FormMethod.Post, new { @autocomplete = "off" }))
+@using (Html.BeginForm("Register", "Auction", FormMethod.Post, new { @autocomplete = "off" }))
 {
 <div class="row">
     <div class="col-md-6">
@@ -44,7 +44,7 @@ Fill in the fields to create a new auction.
     </div>
     <div class="col-md-6">
         <label>Auction Value</label>
-        @Html.TextBoxFor(model => model.Value, new { @class = "form-control", @type = "currency" })
+        @Html.TextBoxFor(model => model.Value, new { @class = "form-control input-group-addon-CHF", type = "number", @min = "0.00", @step = "05.00", @value = "1.00" })
         <span class="text-danger">@Html.ValidationMessageFor(model => model.Value)</span>
     </div>
 

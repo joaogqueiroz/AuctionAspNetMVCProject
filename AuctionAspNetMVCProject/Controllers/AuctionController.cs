@@ -47,6 +47,7 @@ namespace AuctionAspNetMVCProject.Controllers
                     auction.FinishDate = DateTime.Parse(model.FinishDate);
                     auction.FinishHour = TimeSpan.Parse(model.FinishHour);
                     auction.Description = model.Description;
+                    auction.Value = float.Parse(model.Value);
                     auction.UserID = user.UserID; //Foreign key
 
                     _auctionRepository.Create(auction);
@@ -59,6 +60,10 @@ namespace AuctionAspNetMVCProject.Controllers
                     TempData["Message"] = "Erro: " + e.Message;
                 }
             }
+            return View();
+        }
+        public IActionResult Bid()
+        {
             return View();
         }
     }

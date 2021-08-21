@@ -1,4 +1,8 @@
-﻿
+﻿@using AuctionAspNetMVCProject.Data.Entities
+@{
+    Layout = null;
+    var auctions = TempData["Consult"] as List<Auction>;
+}
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/Layout.cshtml";
@@ -6,3 +10,18 @@
 
 <h5> System hello</h5>
 
+<div class="row">
+    @foreach (var auction in auctions)
+    {
+        <div class="col-sm-4">
+            <div class="card">
+                <img class="card-img-top" alt="100%x180" style="height: 180px; width: 100%; display: block;" src="~/imgs/imageTest.svg">
+                <div class="card-body">
+                    <h5 class="card-title">@auction.Name</h5>
+                    <p class="card-text">@auction.Description</p>
+                    <p class="card-text"><strong>$@auction.Value</strong></p>
+                    <a href="/Auction/Bid?id=@auction.AuctionID" class="btn btn-primary">See More</a>
+                </div>
+            </div>
+        </div>
+    }

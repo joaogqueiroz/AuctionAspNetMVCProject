@@ -12,7 +12,8 @@ namespace AuctionAspNetMVCProject.Data.Interfaces
         void Create(Auction auction);
         void Update(Auction auction);
         void Delete(Auction auction);
+        List<Auction> Read();
         List<Auction> GetByUser(Guid userid);
-        Task GetAuctionById(Guid taskid);
+        Task GetAuctionById(Guid auctionid);
     }
 }

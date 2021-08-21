@@ -16,7 +16,7 @@ namespace AuctionAspNetMVCProject.Data.Entities
         public DateTime FinishDate { get; set; }
         public TimeSpan FinishHour { get; set; }
         public string Description { get; set; }
-        public int Value { get; set; }
+        public float Value { get; set; }
         public Guid UserID { get; set; }
 
         //Have one
