@@ -1,0 +1,56 @@
+﻿@model AuctionAspNetMVCProject.Models.AuctionRegisterModel
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h5>Auction Registration</h5>
+Fill in the fields to create a new auction.
+<br />
+<br />
+
+@using (Html.BeginForm("Registration", "Auction", FormMethod.Post, new { @autocomplete = "off" }))
+{
+<div class="row">
+    <div class="col-md-6">
+        <label>Auction name</label>
+        @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+        <span class="text-danger">@Html.ValidationMessageFor(model => model.Name)</span>
+    </div>
+    <div class="col-md-3">
+        <label>Auction start date</label>
+        @Html.TextBoxFor(model => model.StartDate, new { @class = "form-control", @type = "date" })
+        <span class="text-danger">@Html.ValidationMessageFor(model => model.StartDate)</span>
+    </div>
+    <div class="col-md-3">
+        <label>Auction start hour</label>
+        @Html.TextBoxFor(model => model.StartHour, new { @class = "form-control", @type = "time" })
+        <span class="text-danger">@Html.ValidationMessageFor(model => model.StartHour)</span>
+    </div>
+    <div class="col-md-6">
+        <label>Auction Description</label>
+        @Html.TextAreaFor(model => model.Description, new { @class = "form-control" })
+        <span class="text-danger">@Html.ValidationMessageFor(model => model.Description)</span>
+    </div>
+    <div class="col-md-3">
+        <label>Auction finish date</label>
+        @Html.TextBoxFor(model => model.FinishDate, new { @class = "form-control", @type = "date" })
+        <span class="text-danger">@Html.ValidationMessageFor(model => model.FinishDate)</span>
+    </div>
+    <div class="col-md-3">
+        <label>Auction finish hour</label>
+        @Html.TextBoxFor(model => model.FinishHour, new { @class = "form-control", @type = "time" })
+        <span class="text-danger">@Html.ValidationMessageFor(model => model.FinishHour)</span>
+    </div>
+    <div class="col-md-6">
+        <label>Auction Value</label>
+        @Html.TextBoxFor(model => model.Value, new { @class = "form-control", @type = "currency" })
+        <span class="text-danger">@Html.ValidationMessageFor(model => model.Value)</span>
+    </div>
+
+</div>
+    <br />
+
+    <input type="submit" value="Register" class="btn btn-secondary" />
+}
+
